@@ -3,13 +3,15 @@ import axios from "axios";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+
 function ShowSchools() {
   const [schools, setSchools] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCity, setSelectedCity] = useState("All Cities");
 
   useEffect(() => {
-    axios.get("http://localhost:8000/schools/getSchools")
+    axios.get(`${API_URL}/schools/getSchools`)
       .then((res) => {
         setSchools(res.data);
         setLoading(false);
@@ -86,6 +88,9 @@ function ShowSchools() {
                   <img
                     src={school.image || "/placeholder-school.jpg"}
                     alt={school.name}
+                    onError={(e) => {
+                      e.target.src = "/placeholder-school.jpg";
+                    }}
                   />
                 </div>
                 <div className="school-info">

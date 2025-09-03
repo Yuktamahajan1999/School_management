@@ -1,8 +1,9 @@
-/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import axios from "axios";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 function AddSchool() {
     const [form, setForm] = useState({
@@ -38,10 +39,11 @@ function AddSchool() {
 
         try {
             const res = await axios.post(
-                "http://localhost:8000/schools/createSchool",
+                `${API_URL}/schools/createSchool`,
                 formData,
                 { headers: { "Content-Type": "multipart/form-data" } }
             );
+
             toast.success("School added successfully!");
             setForm({
                 name: "",
@@ -135,7 +137,7 @@ function AddSchool() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="image">Image URL</label>
+                    <label htmlFor="image">School Image</label>
                     <input
                         id="image"
                         name="image"
