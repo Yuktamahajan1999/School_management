@@ -3,6 +3,8 @@
 Full-stack School Management app with **React (frontend)** and **Node.js + Express + MySQL (backend)**.  
 Frontend deployed on **Vercel**, backend on **Render**.
 
+**Live Demo:** [https://school-management-two-rho.vercel.app/](https://school-management-two-rho.vercel.app/)
+
 ---
 
 ## ✨ Features
