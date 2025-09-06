@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 function ShowSchools() {
